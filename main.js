@@ -25,9 +25,80 @@ if (Number.isInteger(res)) {
     console.log(`${num} - в цьому тризначному числі немає однакових цифр`);
 }
 
+//HomeWork_4.3
+let yearOfBirth,
+    thisYear,
+    userAge,
+    userCity,
+    userFavoriteSport;
+
+do {
+    yearOfBirth = prompt("Рік Вашого народження? (Приклад: 1979)");
+} while (yearOfBirth === '' || (yearOfBirth + '').length !== 4 || isNaN(yearOfBirth));
+!yearOfBirth ? alert("Шкода, що Ви не захотіли ввести свій рік народження.") :
+    (
+        thisYear = new Date().getFullYear(),
+        userAge = thisYear - yearOfBirth
+    );
+
+do {
+    userCity = prompt("У якому місті Ви проживаєте? (Приклад: Дніпро)");
+} while (userCity === '');
+
+if (!userCity) {
+    alert("Шкода, що Ви не захотіли ввести своє місце проживання.");
+} else {
+    switch (userCity) {
+        case 'Київ':
+            alert("Ти живеш у столиці України.");
+            break;
+        case 'Вашингтон':
+            alert("Ти живеш у столиці США.");
+            break;
+        case 'Лондон':
+            alert("Ти живеш у столиці Англії.");
+            break;
+        default:
+            alert(`Ти живеш у місті ${userCity}.`);
+    }
+}
+
+do {
+    userFavoriteSport = prompt("Ваш улюбленний  вид спорту? (Приклад: тенніс)");
+} while (userFavoriteSport === '');
+
+if (!userFavoriteSport) {
+    alert("Шкода, що Ви не захотіли ввести своє місце проживання.");
+} else {
+    userFavoriteSport = userFavoriteSport.toLowerCase();
+    switch (userFavoriteSport) {
+        case 'бокс':
+            alert("Круто! Хочеш стати Мухаммедом Алі?");
+            break;
+        case 'футбол':
+            alert("Круто! Хочеш стати Пеле?");
+            break;
+        case 'баскетбол':
+            alert("Круто! Хочеш стати Кобі Браянт?");
+            break;
+    }
+}
+
+const alertAge = () => {
+    return !yearOfBirth ? "Ви не ввели рік народження\n" : `Вам ${userAge} років.\n`;
+}
+const alertCity = () => {
+    return !userCity ? "Ви не ввели місце проживання\n" : `Вашe місце проживання: ${userCity}.\n`;
+}
+const alertSport = () => {
+    return !userFavoriteSport ? "Ви не ввели свій улюбленний вид спору\n" : `Ваш улюбленний вид спорту: ${userFavoriteSport}.\n`
+}
+
+alert(alertAge() + alertCity() + alertSport());
+
 //HomeWork_4.4
 let numOrStr = prompt('input number or string');
-console.log(numOrStr)
+console.log(numOrStr);
 
 switch (true) {
     case (numOrStr === null):
